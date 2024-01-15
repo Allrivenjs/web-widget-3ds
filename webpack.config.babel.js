@@ -8,7 +8,7 @@ const ENV = process.env.NODE_ENV || 'development';
 const CSS_MAPS = ENV!=='production';
 
 module.exports = {
-	context: path.resolve(__dirname, "src"),
+    context: path.resolve(__dirname, "src"),
     entry: {
         widget: './widget/index.tsx',
         chat: './chat/index.tsx'
@@ -173,6 +173,6 @@ module.exports = {
 		contentBase: './src',
 		historyApiFallback: true,
 		open: true,
-		openPage: 'demo.html',
+		openPage: 'demo.html'
 	}
 };

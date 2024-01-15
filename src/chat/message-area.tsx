@@ -13,21 +13,21 @@ export default class MessageArea extends Component<IMessageAreaProps, any> {
     render(props: IMessageAreaProps, {}) {
     	const styleChat = 'height:'+(props.conf.wrapperHeight-60)+'px;';
 
-		let calculatedTimeout = 0;
+        let calculatedTimeout = 0;
     	return (
     		<ol class="chat" style={styleChat} >
     			{
     				props.messages.map((message) => {
     					const listElement = <MessageHolder
-							message={message}
-							calculatedTimeout={calculatedTimeout}
-							messageHandler={props.messageHandler}
-							conf={props.conf}
-						/>;
+                            message={message}
+                            calculatedTimeout={calculatedTimeout}
+                            messageHandler={props.messageHandler}
+                            conf={props.conf}
+                        />;
 
-						calculatedTimeout += message.timeout * 1000;
+                        calculatedTimeout += message.timeout * 1000;
 
-						return listElement;
+                        return listElement;
     				})
     			}
     		</ol>

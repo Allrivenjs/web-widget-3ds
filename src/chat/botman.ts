@@ -5,6 +5,7 @@ class BotMan {
 
 	userId: string;
 	chatServer: string;
+    tokenJWT: string;
 
     setUserId(userId: string) {
         this.userId = userId;
@@ -14,6 +15,10 @@ class BotMan {
         this.chatServer = chatServer;
     }
 
+    setTokenJWT(tokenJWT: string){
+        this.tokenJWT = tokenJWT;
+    }
+
     callAPI = (text: string, interactive = false, attachment: IAttachment = null, perMessageCallback: Function, callback: Function) => {
     	let data = new FormData();
     	const postData: { [index: string] : string|Blob } = {
@@ -21,7 +26,8 @@ class BotMan {
     		userId: this.userId,
     		message: text,
     		attachment: attachment as Blob,
-    		interactive: interactive ? '1' : '0'
+    		interactive: interactive ? '1' : '0',
+            token: this.tokenJWT
     	};
 
     	Object.keys(postData).forEach(key => data.append(key, postData[key]));
