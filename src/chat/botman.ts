@@ -40,7 +40,7 @@ class BotMan {
 					perMessageCallback(msg);
 				});
 			}
-
+            // console.log(response.data)
     		if (callback) {
     			callback(response.data);
     		}

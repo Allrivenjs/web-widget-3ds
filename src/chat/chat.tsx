@@ -49,16 +49,17 @@ export default class Chat extends Component<IChatProps, IChatState> {
         });
     }
 
+    // say to server
     say(text: string, showMessage = true) {
         const message: IMessage = {
             text,
             type: "text",
             from: "visitor"
         };
-
         // Send a message from the html user to the server
         this.botman.callAPI(message.text, false, null, (msg: IMessage) => {
             msg.from = "chatbot";
+
             this.writeToMessages(msg);
         });
 
@@ -199,6 +200,7 @@ export default class Chat extends Component<IChatProps, IChatState> {
 	    }
 
 	    this.state.messages.push(msg);
+        console.log(this.state.messages)
 	    this.setState({
 	        messages: this.state.messages
 	    });

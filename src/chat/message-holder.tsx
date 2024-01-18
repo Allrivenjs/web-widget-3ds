@@ -49,7 +49,6 @@ export default class MessageHolder extends Component<IMessageHolderProps, any> {
         const msgTime = new Date(message.time);
         const MessageComponent = messageTypes[message.type] || TextType;
         const { messageHandler, conf } = this.props;
-
         let styles = '';
         if (message.visible === false || message.visibilityChanged === false) {
             styles += 'display:none';
@@ -60,10 +59,10 @@ export default class MessageHolder extends Component<IMessageHolderProps, any> {
             <li data-message-id={message.id} class={message.from} style={styles}>
                 <div class="msg">
                     <MessageComponent onVisibilityChange={this.messageVisibilityChange}
-                                      message={message}
-                                      timeout={calculatedTimeout}
-                                      messageHandler={messageHandler}
-                                      conf={conf}
+                        message={message}
+                        timeout={calculatedTimeout}
+                        messageHandler={messageHandler}
+                        conf={conf}
                     />
                     {(props.conf.displayMessageTime) ?
                         <div class="time">

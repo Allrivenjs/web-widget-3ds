@@ -3,6 +3,13 @@ import Widget from './widget';
 import {defaultConfiguration} from './configuration';
 import {IConfiguration} from "../typings";
 
+
+
+// add on windows function injectChat
+window.injectChat = injectChat;
+
+
+
 if (window.attachEvent) {
     window.attachEvent('onload', injectChat);
 } else {
@@ -58,5 +65,5 @@ function injectChat() {
 }
 
 declare global {
-    interface Window { attachEvent: Function, botmanWidget: IConfiguration }
+    interface Window { attachEvent: Function, botmanWidget: IConfiguration, injectChat: Function }
 }

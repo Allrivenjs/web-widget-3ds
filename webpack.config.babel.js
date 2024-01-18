@@ -14,7 +14,7 @@ module.exports = {
         chat: './chat/index.tsx'
     },
 
-	output: {
+    output: {
 		path: path.resolve(__dirname, "build/js"),
 		publicPath: '/',
 		filename: '[name].js'

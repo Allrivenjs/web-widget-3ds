@@ -9,7 +9,6 @@ import TypingIndicator from "./messages/typing-indicator";
 import MessageHolder from "./message-holder";
 
 export default class MessageArea extends Component<IMessageAreaProps, any> {
-
     render(props: IMessageAreaProps, {}) {
     	const styleChat = 'height:'+(props.conf.wrapperHeight-60)+'px;';
 
@@ -40,4 +39,4 @@ interface IMessageAreaProps {
 	conf: IConfiguration,
 	messages: IMessage[],
 	messageHandler: Function,
-};
+}
