@@ -1,6 +1,8 @@
-import { h, Component } from "preact";
+import {h} from "preact";
 import MessageType from "./messagetype";
-import { IMessageTypeProps } from "../../typings";
+import {IMessage, IMessageTypeProps} from "../../typings";
+import {LinkInfo} from "../LinkInfo";
+import * as renderToString  from 'preact-render-to-string';
 
 const styles = {
     container: {
@@ -14,12 +16,34 @@ const styles = {
     }
 };
 export default class TextType extends MessageType {
+
     render(props: IMessageTypeProps) {
         const message = props.message;
         const attachment = message.attachment;
+        const passToLinks = (message: IMessage) => {
+            const texto = message.text;
+            let data_links = message.additionalParameters;
+            if (data_links && data_links['link_data']){
+                data_links = data_links['link_data'];
+                const html = renderToString.render(LinkInfo({linkData: data_links}));
+                console.log(html);
+            }
 
-        const textObject = { __html: message.text };
-        // console.log(message.text, textObject);
+            return texto;
+        };
+        // const expresionRegularEnlace = /(https?|ftp):\/\/[^\s/$.?#].[^\s]*/gi;
+        // const enlacesEncontrados = texto.match(expresionRegularEnlace);
+        //
+        // if (enlacesEncontrados) {
+        //     return texto.replace(expresionRegularEnlace, (enlace) => {
+        //         return `<a href="${enlace}" target="_blank"
+        //                      class="link"
+        //                     >Click Me</a>`;
+        //     });
+        // }
+        //
+        // return texto;
+        const textObject = { __html: passToLinks(message) };
 
         return (
             <div style={styles}>

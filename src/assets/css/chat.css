@@ -200,3 +200,17 @@ div.loading-dots .dot-lg {
     color: white;
     text-align: center;
 }
+
+.link {
+    text-decoration: #C21F39; /* Quita el subrayado predeterminado */
+    font-weight: bold; /* Hace que el texto sea más audaz */
+    transition: color 0.3s ease-in-out; /* Agrega una transición suave al color del texto */
+}
+
+.link:hover {
+    color: #0056b3; /* Cambia el color del texto al pasar el mouse sobre el enlace */
+}
+
+.link:visited {
+    color: #7952b3; /* Color del texto del enlace visitado */
+}

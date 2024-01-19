@@ -200,7 +200,6 @@ export default class Chat extends Component<IChatProps, IChatState> {
 	    }
 
 	    this.state.messages.push(msg);
-        console.log(this.state.messages)
 	    this.setState({
 	        messages: this.state.messages
 	    });

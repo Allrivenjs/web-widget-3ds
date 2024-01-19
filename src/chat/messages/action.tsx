@@ -25,7 +25,6 @@ export default class Action extends MessageType {
     }
 
     performAction(action: IAction) {
-        console.log(action);
         this.props.messageHandler({
             text: action.text,
             type: 'text',
@@ -33,14 +32,6 @@ export default class Action extends MessageType {
         });
         botman.callAPI(action.value, true, null, (msg: IMessage) => {
             this.setState({ attachmentsVisible : false});
-            console.log({
-                text: msg.text,
-                type: msg.type,
-                actions: msg.actions,
-                attachment: msg.attachment,
-                additionalParameters: msg.additionalParameters,
-                from: 'chatbot'
-            });
             this.props.messageHandler({
                 text: msg.text,
                 type: msg.type,
