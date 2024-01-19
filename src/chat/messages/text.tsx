@@ -25,25 +25,11 @@ export default class TextType extends MessageType {
             let data_links = message.additionalParameters;
             if (data_links && data_links['link_data']){
                 data_links = data_links['link_data'];
-                console.log(data_links);
                 const html = renderToString.render(LinkInfo({linkData: data_links}));
                 return texto + html;
             }
-
             return texto;
         };
-        // const expresionRegularEnlace = /(https?|ftp):\/\/[^\s/$.?#].[^\s]*/gi;
-        // const enlacesEncontrados = texto.match(expresionRegularEnlace);
-        //
-        // if (enlacesEncontrados) {
-        //     return texto.replace(expresionRegularEnlace, (enlace) => {
-        //         return `<a href="${enlace}" target="_blank"
-        //                      class="link"
-        //                     >Click Me</a>`;
-        //     });
-        // }
-        //
-        // return texto;
         const textObject = { __html: passToLinks(message) };
 
         return (

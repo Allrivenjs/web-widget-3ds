@@ -21,7 +21,6 @@ export const LinkInfo = ({ linkData  } : {
 
     const { link, title, description, image, domain } = linkData;
     const imageSrc = 'https://' + (startsWithCustom(image, 'http://' ) ||  startsWithCustom(image, 'https://' ) ? '' : domain) + String(image).replace(/\/\//g, '/');
-    console.log(imageSrc);
 
     return (
         <a style={{
@@ -31,7 +30,8 @@ export const LinkInfo = ({ linkData  } : {
             <div style={{
                 flex: '1 1 auto',
                 minHeight: '1px',
-                padding: '.05rem'
+                padding: '.05rem',
+                marginTop: '1rem'
             }}>
                 <div style={{
                     flexDirection: 'row',
@@ -43,8 +43,8 @@ export const LinkInfo = ({ linkData  } : {
                     borderRadius: '.25rem'
                 }}>
                     <img style={{
-                        width: '6rem',
-                        height: '6rem',
+                        width: '5rem',
+                        height: '5rem',
                         borderRadius: 'calc(.25rem - 1px) 0 0 calc(.25rem - 1px)',
                         borderStyle: 'none'
                     }} src={imageSrc} alt={title}/>
