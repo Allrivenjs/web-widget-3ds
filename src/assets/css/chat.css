@@ -1,4 +1,8 @@
 /* An adaptation of this https://codepen.io/Varo/pen/gbZzgr */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 
 html, body {
     background-color: #f9f9f9;
@@ -214,3 +218,5 @@ div.loading-dots .dot-lg {
 .link:visited {
     color: #7952b3; /* Color del texto del enlace visitado */
 }
+
+

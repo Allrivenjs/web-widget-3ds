@@ -25,8 +25,9 @@ export default class TextType extends MessageType {
             let data_links = message.additionalParameters;
             if (data_links && data_links['link_data']){
                 data_links = data_links['link_data'];
+                console.log(data_links);
                 const html = renderToString.render(LinkInfo({linkData: data_links}));
-                console.log(html);
+                return texto + html;
             }
 
             return texto;
